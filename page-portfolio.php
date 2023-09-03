@@ -54,6 +54,10 @@ get_header('portfolio')
 
             foreach($posts as $post):
             setup_postdata($post);
+
+            $image_id = get_post_thumbnail_id($post);
+            log($image_id);
+            $alt_text = get_post_meta($image_id, '_wp_attachment_image_alt', true);
             ?>
 
             <li class="technology__box">
@@ -62,7 +66,7 @@ get_header('portfolio')
                     <img
                         srcset="<?php echo get_the_post_thumbnail_url($post, 'medium'); ?> 1x, <?php echo get_the_post_thumbnail_url($post, 'large'); ?> 2x"
                         src="<?php echo get_the_post_thumbnail_url($post, 'full'); ?>"
-                        alt="Веб сайт у ноутбуці"
+                        alt="<?php echo esc_attr($alt_text); ?>"
                         width="100%"
                         height="100%"
                         class="technology__img"

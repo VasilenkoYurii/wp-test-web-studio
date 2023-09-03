@@ -13,5 +13,3 @@
     refs.modal.classList.toggle("is-hidden");
   }
 })();
-
-console.log("awdadw");
